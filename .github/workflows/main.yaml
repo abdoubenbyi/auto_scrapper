@@ -1,4 +1,4 @@
-name: Scrape and Upload to Google Sheets
+name: Insert in supabase
 
 on:
   schedule:
