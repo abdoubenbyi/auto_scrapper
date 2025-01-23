@@ -8,3 +8,4 @@ response = (
     supabase.table("test")
     .insert({})
     .execute())
+print('Inserted succefully', )
