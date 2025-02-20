@@ -1,27 +1,28 @@
-name: Insert in supabase
+name: Insert in Supabase
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Runs every 5 minutes
+    - cron: '0 * * * *'  # Runs every hour
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
   insert_in_db:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v4
     
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.x'
     
-    - name: Install dependencies
+    - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install supabase
+        pip install supabase-py  # Correct package
 
-    - name: Run main script
+    - name: Run Main Script
       env:
         URL: ${{ secrets.URL }}
         KEY: ${{ secrets.KEY }}
