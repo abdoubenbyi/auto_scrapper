@@ -27,4 +27,12 @@ jobs:
       env:
         URL: ${{ secrets.URL }}
         KEY: ${{ secrets.KEY }}
-      run: python main.py
+        URL2: ${{ secrets.URL2 }}
+        KEY2: ${{ secrets.KEY2 }}
+        
+        
+    - name: Run Python scripts
+      run: |
+        python main.py
+        python script.py
+      
